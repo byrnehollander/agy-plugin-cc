@@ -1,0 +1,10 @@
+{
+  "name": "agy",
+  "version": "0.2.0",
+  "description": "Gemini 4 Neon (Antigravity CLI) for Claude Code: second opinions, reviews and sandboxed sub-agent work, inside a macOS kernel sandbox.",
+  "author": { "name": "agy-plugin-cc contributors" },
+  "homepage": "https://github.com/byrnehollander/agy-plugin-cc",
+  "repository": "https://github.com/byrnehollander/agy-plugin-cc",
+  "license": "MIT",
+  "keywords": ["antigravity", "agy", "gemini", "neon", "review", "subagent", "delegation"]
+}

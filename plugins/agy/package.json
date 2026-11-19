@@ -1,0 +1,13 @@
+{
+  "name": "agy-plugin-cc",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Claude Code plugin: Gemini 4 Neon via the Antigravity CLI (agy).",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:live": "AGY_LIVE=1 node --test --test-concurrency=1 test/live.test.mjs",
+    "check": "node --check scripts/agy-companion.mjs && for f in scripts/lib/*.mjs; do node --check \"$f\" || exit 1; done"
+  }
+}

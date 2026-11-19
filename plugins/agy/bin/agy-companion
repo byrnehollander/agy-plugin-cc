@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# PATH shim so Claude Code's Bash tool can call the companion by bare name
+# (plugin bin/ directories are on PATH; ${CLAUDE_PLUGIN_ROOT} is not exported).
+set -euo pipefail
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ "$SOURCE" != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+HERE="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+exec node "$HERE/../scripts/agy-companion.mjs" "$@"

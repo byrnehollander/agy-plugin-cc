@@ -1,0 +1,31 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    # The kernel sandbox is macOS-only (sandbox-exec), so the suite runs on macOS.
+    runs-on: macos-latest
+    strategy:
+      matrix:
+        node: [22, 24]
+    defaults:
+      run:
+        working-directory: plugins/agy
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm run check
+      # Offline suite: unit, integration (fake agy) and model-free sandbox-escape probes.
+      # The live suite needs a signed-in agy and is run by maintainers before releases.
+      - run: npm test
+      - name: Vendored Seatbelt policies match the pinned upstream commit
+        run: scripts/update-vendor-sbpl.sh --check

@@ -1,0 +1,15 @@
+{
+  "name": "agy-plugin-cc",
+  "owner": { "name": "agy-plugin-cc contributors" },
+  "metadata": {
+    "description": "Gemini 4 Neon (Antigravity CLI) for Claude Code, inside a macOS kernel sandbox."
+  },
+  "plugins": [
+    {
+      "name": "agy",
+      "description": "Gemini 4 Neon (Antigravity CLI) for Claude Code: second opinions, reviews and sandboxed sub-agent work, inside a macOS kernel sandbox.",
+      "author": { "name": "agy-plugin-cc contributors" },
+      "source": "./plugins/agy"
+    }
+  ]
+}
